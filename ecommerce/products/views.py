@@ -4,6 +4,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product, Category
 from .forms import ProductForm
 
+from django.shortcuts import render
+from .models import Product, Category
+from django.conf import settings
+
+
 
 def product_list(request):
     products = Product.objects.all()
@@ -44,3 +49,18 @@ def product_delete(request, pk):
         product.delete()
         return redirect('product_list')
     return render(request, 'products/product_confirm_delete.html', {'product': product})
+
+
+# products/views.py
+
+def home(request):
+    # Fetch all products
+    products = Product.objects.all()
+
+    # Fetch all categories (optional, if you want to display categories as well)
+    categories = Category.objects.all()
+
+    return render(request, 'home.html', {
+        'products': products,  # Pass products to the template
+        'categories': categories,  # Optional: Pass categories to the template
+    })

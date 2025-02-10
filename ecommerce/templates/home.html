@@ -1,0 +1,43 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}Home - Ecommerce Store{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <div class="jumbotron jumbotron-fluid bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4">Welcome to Our Ecommerce Store</h1>
+            <p class="lead">Discover amazing products at unbeatable prices!</p>
+            <a href="{% url 'product_list' %}" class="btn btn-light btn-lg">View All Products</a>
+        </div>
+    </div>
+
+    <!-- Featured Products -->
+    <section class="container my-5">
+        <h2 class="text-center mb-4">Featured Products</h2>
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" class="card-img-top product-image" alt="{{ product.name }}">
+                        {% else %}
+                            <img src="https://via.placeholder.com/300" class="card-img-top product-image" alt="No Image">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">{{ product.description|truncatewords:10 }}</p>
+                            <p class="card-text"><strong>Price:</strong> ₹{{ product.price }}</p>
+                            <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>
+                            <a href="{% url 'product_detail' product.pk %}" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No products available.</p>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
