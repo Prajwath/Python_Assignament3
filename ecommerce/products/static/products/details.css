@@ -1,0 +1,91 @@
+/* details.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.product-details {
+    padding: 60px 0; /* Increased padding */
+}
+
+.card {
+    border: none;
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+    overflow: hidden; /* For image clipping */
+}
+
+.image-zoom-container {
+    overflow: hidden; /* For image zoom effect */
+}
+
+.img-fluid {
+    transition: transform 0.3s ease; /* Smooth zoom transition */
+    border-radius: 15px 0 0 15px; /* Rounded corners on left side */
+}
+
+.img-fluid:hover {
+    transform: scale(1.05); /* Zoom on hover */
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.card-title {
+    font-size: 1.8rem; /* Larger title */
+    margin-bottom: 15px;
+    color: #343a40;
+}
+
+.card-text {
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.badge {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    margin-right: 5px;
+}
+
+.btn {
+    padding: 12px 20px; /* Larger buttons */
+    font-size: 1rem;
+    border-radius: 8px; /* More rounded button corners */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Responsive adjustments (example) */
+@media (max-width: 768px) {
+    .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .img-fluid {
+        border-radius: 15px 15px 0 0; /* Rounded corners on top when stacked */
+    }
+}

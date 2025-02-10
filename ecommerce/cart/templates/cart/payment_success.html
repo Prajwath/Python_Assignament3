@@ -1,0 +1,15 @@
+<!-- templates/cart/payment_success.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Successful</title>
+</head>
+<body>
+    <h2>Payment Successful!</h2>
+    <p>Order ID: {{ order.id }}</p>
+    <p>Total Paid: ₹{{ order.get_total_cost }}</p>
+    <br>
+    <a href="{% url 'product_list' %}">Continue Shopping</a>
+</body>
+</html>

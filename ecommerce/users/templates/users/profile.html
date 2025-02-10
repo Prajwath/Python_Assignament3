@@ -1,0 +1,16 @@
+<!-- templates/users/profile.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+</head>
+<body>
+    <h2>Profile</h2>
+    <p>Username: {{ user_profile.user.username }}</p>
+    <p>Email: {{ user_profile.user.email }}</p>
+    <p>Address: {{ user_profile.address }}</p>
+    <p>Phone Number: {{ user_profile.phone_number }}</p>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
